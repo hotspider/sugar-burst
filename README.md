@@ -1,6 +1,6 @@
 # Sugar Burst
 
-An original candy-themed match-3 H5 game in a single self-contained HTML file (no external dependencies).
+An original candy-themed match-3 H5 game. Standard web layout: `index.html`, `css/`, `js/`, and an `assets/` folder of PNG/JPG images and MP3 audio listed in `assets/manifest.json`. No third-party libraries or external requests.
 
 **Play online:** https://hotspider.github.io/sugar-burst/
 
@@ -11,11 +11,12 @@ An original candy-themed match-3 H5 game in a single self-contained HTML file (n
 - Boosters: Lolly Mallet, Free Swap, Magic Shuffle, Rainbow Wand, plus 3 pre-level boosters, a coin shop and a daily bonus
 - Rewarded ads for coins (+100, 8 per day): map button, shop, "not enough coins" dialogs, and "Double it" after a win
 - World map with fog over unreached levels; clearing a level rolls the fog back, unlocks the next node and moves the mascot
-- All art is drawn procedurally with Canvas; all sound effects and music are synthesized live with Web Audio
+- Art and audio were generated procedurally (Canvas / Web Audio) and exported to regular asset files, so artists can replace any image or sound by file name
+- Loading screen with progress bar; seamless music loops; per-file load timeouts
 
 ## Plugging in a real ad network
 
-The game ships with a built-in demo ad so the reward flow works everywhere. To serve real rewarded ads, define one of these before the game script runs:
+The game ships with a built-in demo ad so the reward flow works everywhere. To serve real rewarded ads, define one of these in `index.html` before the game scripts:
 
 ```js
 // Any SDK: call cb(true) only when the player earned the reward
