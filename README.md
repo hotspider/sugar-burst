@@ -1,12 +1,12 @@
-# 甜蜜消消乐 Sugar Burst
+# Sugar Burst
 
-原创糖果风格三消 H5 小游戏（单文件，无任何外部依赖）。
+An original candy-themed match-3 H5 game in a single self-contained HTML file (no external dependencies).
 
-**在线试玩：** https://hotspider.github.io/sugar-burst/
+**Play online:** https://hotspider.github.io/sugar-burst/
 
-- 60 个关卡、6 大主题区域，关卡难度经过机器人数千局模拟自动平衡
-- 特殊糖果：条纹糖（4 连）、包装糖（L/T 形）、彩虹糖（5 连）、软糖鱼（2×2）
-- 超级组合：任意两颗特殊糖果交换都有独立特效，双彩虹糖可清空全场
-- 关卡目标：分数、收集、果冻、糖霜、糖果笼、运送食材、引爆特殊糖
-- 道具：棒棒糖锤、自由交换、魔法洗牌、彩虹魔棒 + 3 种开局道具、金币商店、每日奖励
-- 美术全部由 Canvas 程序绘制，音效与背景音乐全部由 Web Audio 实时合成
+- 60 levels across 6 themed worlds, with move counts balanced by thousands of simulated bot games
+- Special candies: Striped (match 4), Wrapped (L/T shape), Rainbow (match 5), Gummy Fish (2×2 square)
+- Super combos: every pair of special candies has its own effect; two Rainbow Candies clear the whole board
+- Goals: score, collect colors, clear jelly, break frosting, open candy cages, bring ingredients down, fire specials
+- Boosters: Lolly Mallet, Free Swap, Magic Shuffle, Rainbow Wand, plus 3 pre-level boosters, a coin shop and a daily bonus
+- All art is drawn procedurally with Canvas; all sound effects and music are synthesized live with Web Audio

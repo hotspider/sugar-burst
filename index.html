@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#ff5fa2">
-<meta name="description" content="甜蜜消消乐 Sugar Burst — 糖果风格三消益智小游戏，60 个关卡，条纹糖、包装糖、彩虹糖、软糖鱼与超级组合特效。">
-<title>甜蜜消消乐</title>
+<meta name="description" content="Sugar Burst — a candy match-3 puzzle game with 60 levels, special candies and super combos.">
+<title>Sugar Burst</title>
 <style>
 :root {
   --pink: #ff5fa2;
@@ -87,14 +87,14 @@ canvas { display: block; }
 #title-canvas { position: absolute; inset: 0; }
 .title-wrap { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
 .logo { position: relative; text-align: center; margin-top: -60px; animation: logoIn 1s cubic-bezier(.2, 1.6, .4, 1) both; }
-.logo .cn {
-  display: block; font-size: 64px; font-weight: 900; letter-spacing: 4px; line-height: 1.1;
+.logo .name {
+  display: block; font-size: 76px; font-weight: 900; letter-spacing: 2px; line-height: .98;
   background: linear-gradient(180deg, #fff 0%, #ffe3f1 30%, #ff7ab8 60%, #e8267a 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
   filter: drop-shadow(0 3px 0 #7a1045) drop-shadow(0 -2px 0 #7a1045) drop-shadow(3px 0 0 #7a1045) drop-shadow(-3px 0 0 #7a1045) drop-shadow(0 8px 10px rgba(80, 0, 40, .45));
 }
-.logo .en {
-  display: inline-block; margin-top: 8px; padding: 6px 18px; border-radius: 20px; font-size: 20px; font-weight: 900; letter-spacing: 6px;
+.logo .tag {
+  display: inline-block; margin-top: 12px; padding: 6px 18px; border-radius: 20px; font-size: 20px; font-weight: 900; letter-spacing: 4px;
   color: #fff; background: linear-gradient(90deg, #7b3fe4, #ff5fa2); box-shadow: 0 4px 0 #4b1f9e, 0 8px 16px rgba(0, 0, 0, .25);
 }
 .title-wrap .btn { animation: pulse 1.6s ease-in-out infinite; }
@@ -253,7 +253,7 @@ canvas { display: block; }
 .p-text { font-size: 15px; line-height: 1.6; color: #6b2a52; margin: 6px 4px 12px; font-weight: 700; }
 .tip-card { display: flex; align-items: center; gap: 12px; text-align: left; padding: 10px 12px; margin: 0 0 14px; border-radius: 18px; background: linear-gradient(90deg, #fff6c9, #ffe9f4); border: 2px solid #ffd23f; }
 .tip-card canvas { flex: none; width: 110px; height: 66px; }
-.tip-card .tt { font-size: 14px; line-height: 1.5; font-weight: 700; color: #6b2a52; }
+.tip-card .tt { font-size: 13px; line-height: 1.45; font-weight: 700; color: #6b2a52; }
 .tip-card .tt b { display: block; color: #e8267a; font-size: 15px; }
 .tip-new { display: inline-block; padding: 1px 8px; margin-right: 4px; border-radius: 8px; background: #ff3d6e; color: #fff; font-size: 11px; vertical-align: 2px; }
 .pre-row { display: flex; justify-content: center; gap: 12px; margin: 0 0 16px; }
@@ -296,7 +296,8 @@ canvas { display: block; }
   border: 4px solid #ffb3d4; box-shadow: 0 8px 0 #d6307a, 0 20px 40px rgba(0, 0, 0, .35); text-align: center;
   animation: bannerInOut 2.2s cubic-bezier(.2, 1.3, .4, 1) both;
 }
-.goal-banner .t { font-size: 22px; font-weight: 900; color: #e8267a; margin-bottom: 8px; }
+.goal-banner { width: min(86%, 340px); }
+.goal-banner .t { font-size: 18px; line-height: 1.35; font-weight: 900; color: #e8267a; margin-bottom: 8px; }
 .goal-banner .p-goals { margin: 0; background: none; border: 0; padding: 0; }
 @keyframes bannerInOut { 0% { transform: translate(-50%, -50%) scale(.3); opacity: 0; } 15% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 80% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 100% { transform: translate(-50%, -150%) scale(.6); opacity: 0; } }
 .hand {
@@ -326,6 +327,18 @@ canvas { display: block; }
   .title-wrap .btn, .node.cur, .node.cur::after, .mascot, .moves-box.warn .num { animation: none !important; }
 }
 
+@media (max-height: 700px) {
+  .panel { padding: 44px 16px 18px; }
+  .p-goals { padding: 8px; margin-bottom: 10px; }
+  .p-goal canvas { width: 46px; height: 46px; }
+  .p-text { margin: 4px 4px 8px; font-size: 14px; }
+  .tip-card { margin-bottom: 10px; padding: 8px 10px; }
+  .pre { width: 62px; height: 62px; }
+  .pre img { width: 48px; height: 48px; }
+  .pre-row { margin-bottom: 12px; }
+  .btn.big { height: 58px; font-size: 24px; }
+}
+
 </style>
 </head>
 <body>
@@ -333,9 +346,9 @@ canvas { display: block; }
   <div id="screen-title" class="screen on">
     <canvas id="title-canvas"></canvas>
     <div class="title-wrap">
-      <div class="logo"><span class="cn">甜蜜消消乐</span><span class="en">SUGAR BURST</span></div>
+      <div class="logo"><span class="name">Sugar<br>Burst</span><span class="tag">CANDY MATCH-3</span></div>
     </div>
-    <div class="title-foot">滑动交换糖果 · 三个相连即可消除</div>
+    <div class="title-foot">Swipe to swap candies · Match 3 to clear</div>
   </div>
 
   <div id="screen-map" class="screen">
@@ -344,7 +357,7 @@ canvas { display: block; }
       <div class="pill" id="pill-stars"><img alt=""><span>0</span></div>
       <div class="pill" id="pill-coins"><img alt=""><span>0</span><i class="plus">+</i></div>
       <div class="spacer"></div>
-      <button class="round-btn" id="btn-set" aria-label="设置"></button>
+      <button class="round-btn" id="btn-set" aria-label="Settings"></button>
     </div>
   </div>
 
@@ -352,14 +365,14 @@ canvas { display: block; }
     <canvas id="board"></canvas>
     <div class="hud-top">
       <div class="hud-sub">
-        <button class="round-btn" id="btn-pause" aria-label="暂停"></button>
-        <div class="lvl-tag" id="lvl-tag">第 1 关</div>
+        <button class="round-btn" id="btn-pause" aria-label="Pause"></button>
+        <div class="lvl-tag" id="lvl-tag">Level 1</div>
         <div style="width:38px"></div>
       </div>
       <div class="hud-row">
-        <div class="hud-panel moves-box" id="moves-box"><div class="hud-lbl">步数</div><div class="num o-text" id="moves-num">0</div></div>
-        <div class="hud-panel goals-box"><div class="hud-lbl">目标</div><div class="goals" id="goals"></div></div>
-        <div class="hud-panel score-box"><div class="hud-lbl">分数</div><div class="num" id="score-num">0</div><div class="sbar" id="sbar"><div class="fill"></div></div></div>
+        <div class="hud-panel moves-box" id="moves-box"><div class="hud-lbl">MOVES</div><div class="num o-text" id="moves-num">0</div></div>
+        <div class="hud-panel goals-box"><div class="hud-lbl">GOALS</div><div class="goals" id="goals"></div></div>
+        <div class="hud-panel score-box"><div class="hud-lbl">SCORE</div><div class="num" id="score-num">0</div><div class="sbar" id="sbar"><div class="fill"></div></div></div>
       </div>
     </div>
     <div class="boost-tip" id="boost-tip"></div>
@@ -372,7 +385,7 @@ canvas { display: block; }
   <div id="toast"></div>
   <div class="fade-cover" id="cover"></div>
 </div>
-<div id="rotate"><i></i>请竖屏游玩，体验更佳</div>
+<div id="rotate"><i></i>Please rotate to portrait</div>
 <script>
 /* ---- tuning.js ---- */
 /* generated by tools/tune.js */
@@ -5477,7 +5490,7 @@ window.Snd = Snd;
   };
 
   // ---------------- Board ----------------
-  var WORDS = ['好甜!', '美味!', '超赞!', '甜蜜爆表!'];
+  var WORDS = ['Yummy!', 'Awesome!', 'Fantastic!', 'Unbelievable!'];
 
   function Board(canvas, fxCanvas, ui) {
     this.cv = canvas; this.x = canvas.getContext('2d');
@@ -5950,7 +5963,7 @@ window.Snd = Snd;
     });
   };
   B.playShuffle = async function (ph) {
-    this.ui.toast('没有可消除的糖果啦~ 重新洗牌!');
+    this.ui.toast('No moves left — shuffling!');
     this.sfx('shuffle');
     var self = this, cx = (this.g.cols - 1) / 2, cy = (this.g.rows - 1) / 2;
     await this.wait(500);
@@ -6060,7 +6073,7 @@ window.Snd = Snd;
     this.fx.add({ type: 'glow', x: p[0], y: p[1], r: cs * 3, color: '#fff7c0', life: 0.5, grow: 1.5 });
     this.fx.add({ type: 'ring', x: p[0], y: p[1], r0: cs * 0.3, r1: cs * 3, w: 8, color: '#fff', life: 0.6, glow: true });
     this.shake(8);
-    this.word('超级组合!', 3);
+    this.word('Super Combo!', 3);
     this.vibrate(40);
   };
   B.ev_beam = function (ev) {
@@ -6337,6 +6350,9 @@ window.Snd = Snd;
     this.effects = this.effects.filter(function (e) { return !e.isWord; });
     this.sfx('cheer', { level: Math.max(0, Math.min(3, tier)) });
     var size = Math.min(this.W * 0.16, 64) * (0.9 + tier * 0.08);
+    this.x.font = '900 ' + size + 'px ' + FONT;
+    var tw = this.x.measureText(text).width, maxW = this.W * 0.78;
+    if (tw > maxW) size *= maxW / tw;
     var eff = {
       isWord: true,
       upd: function (dt) { t += dt; return t < 1.3; },
@@ -6464,15 +6480,15 @@ window.Snd = Snd;
     return c;
   }
   function goalText(g) {
-    var cn = ['红色', '橙色', '黄色', '绿色', '蓝色', '紫色'];
+    var cn = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
     switch (g.type) {
-      case 'score': return '获得 ' + g.n + ' 分';
-      case 'collect': return '收集' + cn[g.color] + '糖果';
-      case 'kind': return '引爆' + { stripe: '条纹糖', wrap: '包装糖', bomb: '彩虹糖', fish: '软糖鱼' }[g.kind];
-      case 'jelly': return '清除所有果冻';
-      case 'frost': return '击碎所有糖霜';
-      case 'lock': return '解开所有糖果笼';
-      case 'ingr': return '把樱桃和榛果运到底部';
+      case 'score': return 'Score ' + g.n + ' points';
+      case 'collect': return 'Collect ' + cn[g.color] + ' candies';
+      case 'kind': return 'Fire ' + { stripe: 'Striped Candies', wrap: 'Wrapped Candies', bomb: 'Rainbow Candies', fish: 'Gummy Fish' }[g.kind];
+      case 'jelly': return 'Clear all the jelly';
+      case 'frost': return 'Break all the frosting';
+      case 'lock': return 'Open all the candy cages';
+      case 'ingr': return 'Bring the cherries & nuts down';
     }
     return '';
   }
@@ -6547,7 +6563,7 @@ window.Snd = Snd;
   var titleCandies = [];
   function initTitle() {
     for (var i = 0; i < 16; i++) titleCandies.push({ x: Math.random(), y: Math.random(), s: 0.6 + Math.random() * 0.8, v: 0.02 + Math.random() * 0.04, r: Math.random() * TAU, vr: (Math.random() - 0.5) * 1.2, c: i % 6, k: ['normal', 'normal', 'sh', 'wrap', 'normal', 'bomb', 'fish'][i % 7] });
-    var b = btn('开始游戏', 'big pink', function () {
+    var b = btn('Play', 'big pink', function () {
       if (window.Snd) { Snd.unlock(); Snd.music('map'); }
       transition('map');
     });
@@ -6569,12 +6585,12 @@ window.Snd = Snd;
 
   // ---------------- map ----------------
   var ZONES = [
-    { name: '草莓牧场', en: 'STRAWBERRY FIELDS', c: ['#ffe3f0', '#ffb6d6'], sign: 'linear-gradient(180deg,#ff8cc4,#e8267a)', deco: ['lollipop', 'cupcake', 'gumtree', 'candycane', 'cloud'] },
-    { name: '柠檬山谷', en: 'LEMON VALLEY', c: ['#fff8d0', '#ffe07a'], sign: 'linear-gradient(180deg,#ffd35c,#f08c00)', deco: ['icecream', 'donut', 'lollipop', 'mushroom', 'cloud'] },
-    { name: '薄荷湖畔', en: 'MINT LAKE', c: ['#dcfff3', '#8fe8cc'], sign: 'linear-gradient(180deg,#5ee8c0,#13a882)', deco: ['gumtree', 'mushroom', 'candycane', 'cupcake', 'cloud'] },
-    { name: '巧克力山', en: 'CHOCO MOUNTAIN', c: ['#f6e3d2', '#dcae8a'], sign: 'linear-gradient(180deg,#c98a5e,#7a4424)', deco: ['donut', 'cupcake', 'mushroom', 'icecream', 'cloud'] },
-    { name: '葡萄城堡', en: 'GRAPE CASTLE', c: ['#efe2ff', '#c9a8ff'], sign: 'linear-gradient(180deg,#b98cff,#6a2fd6)', deco: ['lollipop', 'gumtree', 'candycane', 'icecream', 'cloud'] },
-    { name: '彩虹云端', en: 'RAINBOW SKY', c: ['#e3f6ff', '#a8dcff'], sign: 'linear-gradient(180deg,#7fd0ff,#2b7fe0)', deco: ['cloud', 'lollipop', 'donut', 'cupcake', 'cloud'] }
+    { name: 'Strawberry Fields', c: ['#ffe3f0', '#ffb6d6'], sign: 'linear-gradient(180deg,#ff8cc4,#e8267a)', deco: ['lollipop', 'cupcake', 'gumtree', 'candycane', 'cloud'] },
+    { name: 'Lemon Valley', c: ['#fff8d0', '#ffe07a'], sign: 'linear-gradient(180deg,#ffd35c,#f08c00)', deco: ['icecream', 'donut', 'lollipop', 'mushroom', 'cloud'] },
+    { name: 'Mint Lake', c: ['#dcfff3', '#8fe8cc'], sign: 'linear-gradient(180deg,#5ee8c0,#13a882)', deco: ['gumtree', 'mushroom', 'candycane', 'cupcake', 'cloud'] },
+    { name: 'Choco Mountain', c: ['#f6e3d2', '#dcae8a'], sign: 'linear-gradient(180deg,#c98a5e,#7a4424)', deco: ['donut', 'cupcake', 'mushroom', 'icecream', 'cloud'] },
+    { name: 'Grape Castle', c: ['#efe2ff', '#c9a8ff'], sign: 'linear-gradient(180deg,#b98cff,#6a2fd6)', deco: ['lollipop', 'gumtree', 'candycane', 'icecream', 'cloud'] },
+    { name: 'Rainbow Sky', c: ['#e3f6ff', '#a8dcff'], sign: 'linear-gradient(180deg,#7fd0ff,#2b7fe0)', deco: ['cloud', 'lollipop', 'donut', 'cupcake', 'cloud'] }
   ];
   var MAP = { built: false, nodes: [], w: 0 };
   var GAP = 118;
@@ -6617,7 +6633,7 @@ window.Snd = Snd;
         }
         // sign
         var sp = nodePos(z * 10 + 0.5, w, total);
-        var sign = h('div', 'zone-sign', Z.name + '<small>' + Z.en + '</small>');
+        var sign = h('div', 'zone-sign', Z.name + '<small>WORLD ' + (z + 1) + '</small>');
         sign.style.top = (z === 0 ? total - 90 : sp[1] - 26) + 'px';
         if (z > 0) sign.style.left = (sp[0] > w / 2 ? 26 : 74) + '%';
         sign.style.background = Z.sign;
@@ -6642,7 +6658,7 @@ window.Snd = Snd;
       for (i = 1; i <= N; i++) {
         var nd = h('div', 'node');
         nd.style.left = pts[i - 1][0] + 'px'; nd.style.top = pts[i - 1][1] + 'px';
-        (function (n) { nd.onclick = function () { if (window.Snd) Snd.unlock(); if (n <= S.unlocked) { snd('tap'); levelPopup(n); } else { snd('invalid'); toast('先通过前面的关卡吧~'); } }; })(i);
+        (function (n) { nd.onclick = function () { if (window.Snd) Snd.unlock(); if (n <= S.unlocked) { snd('tap'); levelPopup(n); } else { snd('invalid'); toast('Beat the earlier levels first!'); } }; })(i);
         inner.appendChild(nd);
         MAP.nodes.push(nd);
       }
@@ -6677,16 +6693,16 @@ window.Snd = Snd;
 
   // ---------------- tips ----------------
   var TIPS = {
-    basic: ['交换消除', '滑动交换相邻的两颗糖果，让 3 颗或更多同色糖果连成一线即可消除！'],
-    striped: ['条纹糖', '4 颗同色连成一线，合成条纹糖！引爆后清除整行或整列。'],
-    wrapped: ['包装糖', '5 颗同色摆成 L 形或 T 形，合成包装糖！它会连续爆炸两次。'],
-    bomb: ['彩虹糖', '5 颗同色连成一线，合成彩虹糖！与任意糖果交换，清除所有同色糖果。'],
-    fish: ['软糖鱼', '4 颗同色摆成 2×2 方块，合成软糖鱼！它会自动游向关键目标。'],
-    jelly: ['果冻', '在果冻上消除糖果即可清除果冻，双层果冻需要消除两次。'],
-    frost: ['糖霜块', '在糖霜旁边消除糖果，或用特效糖击中它，就能把它敲碎。'],
-    ingr: ['运送食材', '把樱桃和榛果一路运到棋盘最底部就能收集它们！'],
-    lock: ['糖果笼', '被锁住的糖果不能移动，让它参与一次消除即可解锁。'],
-    combo: ['超级组合', '直接交换两颗特殊糖果，可以触发威力巨大的组合特效！']
+    basic: ['Swap & Match', 'Swipe to swap neighbors. Line up 3 of a color to clear them!'],
+    striped: ['Striped Candy', 'Match 4 in a row. It clears a whole row or column!'],
+    wrapped: ['Wrapped Candy', 'Match 5 in an L or T shape. It explodes twice!'],
+    bomb: ['Rainbow Candy', 'Match 5 in a row. Swap it to clear a whole color!'],
+    fish: ['Gummy Fish', 'Match a 2×2 square. It swims off to hit a target!'],
+    jelly: ['Jelly', 'Match on top of jelly to clear it. Double jelly takes two.'],
+    frost: ['Frosting', 'Match next to frosting, or blast it, to break it.'],
+    ingr: ['Ingredients', 'Bring cherries and nuts to the bottom to collect them!'],
+    lock: ['Candy Cage', 'Caged candies can’t move. Match one to free it.'],
+    combo: ['Super Combo', 'Swap two special candies together for a mega effect!']
   };
   function drawTip(c, key) {
     var w = 110, hh = 66;
@@ -6715,15 +6731,15 @@ window.Snd = Snd;
 
   // ---------------- boosters ----------------
   var BOOSTERS = [
-    { id: 'hammer', name: '棒棒糖锤', desc: '敲碎任意一颗糖果或障碍', price: 90, tip: '点击要敲碎的糖果或障碍' },
-    { id: 'swap', name: '自由交换', desc: '交换任意相邻糖果，不耗步数', price: 70, tip: '滑动交换任意两颗相邻糖果' },
-    { id: 'shuffle', name: '魔法洗牌', desc: '重新打乱棋盘上的糖果', price: 50 },
-    { id: 'wand', name: '彩虹魔棒', desc: '把一颗糖果变成彩虹糖', price: 150, tip: '点击一颗糖果，把它变成彩虹糖' }
+    { id: 'hammer', name: 'Lolly Mallet', desc: 'Smash any one candy or blocker', price: 90, tip: 'Tap a candy or blocker to smash it' },
+    { id: 'swap', name: 'Free Swap', desc: 'Swap any two neighbors, no move used', price: 70, tip: 'Swipe any two neighbors to swap them' },
+    { id: 'shuffle', name: 'Magic Shuffle', desc: 'Mix up all the candies on the board', price: 50 },
+    { id: 'wand', name: 'Rainbow Wand', desc: 'Turn one candy into a Rainbow Candy', price: 150, tip: 'Tap a candy to make it a Rainbow Candy' }
   ];
   var PRES = [
-    { id: 'bomb', icon: 'pre_bomb', name: '彩虹糖', desc: '开局获得一颗彩虹糖', price: 100 },
-    { id: 'sw', icon: 'pre_sw', name: '特效糖', desc: '开局获得条纹糖+包装糖', price: 80 },
-    { id: 'moves', icon: 'pre_moves', name: '+3 步', desc: '本关额外增加 3 步', price: 60 }
+    { id: 'bomb', icon: 'pre_bomb', name: 'Rainbow Start', desc: 'Start with a Rainbow Candy', price: 100 },
+    { id: 'sw', icon: 'pre_sw', name: 'Special Start', desc: 'Start with a Striped + a Wrapped Candy', price: 80 },
+    { id: 'moves', icon: 'pre_moves', name: '+3 Moves', desc: 'Get 3 extra moves this level', price: 60 }
   ];
   function buildBoosterBar() {
     var bar = $('#boosters');
@@ -6751,7 +6767,7 @@ window.Snd = Snd;
     var tip = $('#boost-tip');
     if (mode) {
       tip.innerHTML = '<span>' + b.tip + '</span>';
-      var cancel = h('button', '', '取消');
+      var cancel = h('button', '', 'Cancel');
       cancel.onclick = function () { snd('tap'); setMode(null); };
       tip.appendChild(cancel);
       tip.classList.add('on');
@@ -6764,14 +6780,14 @@ window.Snd = Snd;
     modal(function (p) {
       var ic = isPre ? IC.booster(item.icon) : IC.booster(item.id);
       p.appendChild(h('div', 'p-text', '<img src="' + ic + '" style="width:90px;height:90px;display:block;margin:0 auto 6px">' + item.desc));
-      var b = btn('<img class="coin-ic" src="' + IC.coin() + '">' + item.price + ' 购买 ×1', 'orange', function () {
-        if (S.coins < item.price) { toast('金币不足啦~ 去商店领取每日奖励吧'); snd('invalid'); return; }
+      var b = btn('<img class="coin-ic" src="' + IC.coin() + '">' + item.price + '  Buy ×1', 'orange', function () {
+        if (S.coins < item.price) { toast('Not enough coins — claim your daily bonus in the shop!'); snd('invalid'); return; }
         S.coins -= item.price;
         if (isPre) S.pre[item.id] = (S.pre[item.id] || 0) + 1; else S.boosters[item.id] = (S.boosters[item.id] || 0) + 1;
         persist(); snd('coin'); closeModal(); if (cb) cb();
       });
       p.appendChild(h('div', 'p-row')).appendChild(b);
-      p.appendChild(h('div', 'p-sub', '当前金币：' + S.coins));
+      p.appendChild(h('div', 'p-sub', 'Your coins: ' + S.coins));
     }, { ribbon: item.name, ribbonCls: 'purple' });
   }
   function useBooster(b) {
@@ -6792,7 +6808,7 @@ window.Snd = Snd;
   }
   function boosterCell(mode, cell) {
     var ph = mode === 'hammer' ? game.hammer(cell[0], cell[1]) : game.wand(cell[0], cell[1]);
-    if (!ph) { board.nudge(cell); toast(mode === 'wand' ? '只能选择普通糖果哦' : '这里敲不动哦'); return; }
+    if (!ph) { board.nudge(cell); toast(mode === 'wand' ? 'Pick a regular candy' : 'That can’t be smashed'); return; }
     S.boosters[mode]--; persist();
     setMode(null);
     runPhases(ph, true);
@@ -6801,7 +6817,7 @@ window.Snd = Snd;
   // ---------------- HUD ----------------
   var warned = false;
   function buildHud() {
-    $('#lvl-tag').textContent = '第 ' + levelN + ' 关';
+    $('#lvl-tag').textContent = 'Level ' + levelN;
     var gl = $('#goals');
     gl.innerHTML = '';
     disp.left = {};
@@ -6837,7 +6853,7 @@ window.Snd = Snd;
     if (n === 5 && !warned && game && game.state === 'play') {
       warned = true;
       snd('warning');
-      toast('只剩 5 步啦！加油！');
+      toast('Only 5 moves left — you can do it!');
     }
   }
   function updateScore() {
@@ -6921,13 +6937,13 @@ window.Snd = Snd;
     board.busy = true;
     await board.waitFlights();
     for (var k in game.left) if (k !== 'score') setGoalCount(k, 0);
-    board.word('目标达成!', 1);
+    board.word('Goals Complete!', 1);
     snd('sugar');
     await sleep(1100);
     var hasSpecial = false;
     game.eachCell(function (cl) { if (cl.candy && Model.isSpecial(cl.candy)) hasSpecial = true; });
     if (game.moves > 0 || hasSpecial) {
-      board.word('糖果狂欢!', 3);
+      board.word('Candy Party!', 3);
       await sleep(700);
       var ph = game.bonus();
       board.bonus = true;
@@ -6968,13 +6984,14 @@ window.Snd = Snd;
       p.appendChild(sc);
       p.appendChild(h('div', 'win-reward', '<img src="' + IC.coin() + '">+' + reward));
       var r = h('div', 'p-row');
-      r.appendChild(btn('重玩', 'orange small', function () { closeModal(); startLevel(levelN); }));
-      if (levelN < Levels.COUNT) r.appendChild(btn('下一关', 'big', function () { closeModal(); transition('map', null).then(function () { setTimeout(function () { levelPopup(levelN + 1); }, 400); }); }));
-      else r.appendChild(btn('全部通关!', 'big', function () { closeModal(); transition('map'); }));
+      if (levelN < Levels.COUNT) r.appendChild(btn('Next Level', 'big', function () { closeModal(); transition('map', null).then(function () { setTimeout(function () { levelPopup(levelN + 1); }, 400); }); }));
+      else r.appendChild(btn('All Clear!', 'big', function () { closeModal(); transition('map'); }));
       p.appendChild(r);
-      var back = btn('返回地图', 'blue small', function () { closeModal(); transition('map'); });
-      back.style.marginTop = '12px';
-      p.appendChild(back);
+      var r2 = h('div', 'p-row');
+      r2.style.marginTop = '14px';
+      r2.appendChild(btn('Replay', 'orange small', function () { closeModal(); startLevel(levelN); }));
+      r2.appendChild(btn('Back to Map', 'blue small', function () { closeModal(); transition('map'); }));
+      p.appendChild(r2);
       // animate stars & score
       cvs.forEach(function (cc, i) {
         if (i >= stars) return;
@@ -6996,13 +7013,13 @@ window.Snd = Snd;
         if (k < 1 && document.body.contains(sc)) requestAnimationFrame(tick);
       }
       setTimeout(tick, 0);
-    }, { ribbon: '过关啦!', close: false });
+    }, { ribbon: 'Level Clear!', close: false });
   }
   function loseFlow() {
     snd('lose');
     var price = 120;
     modal(function (p) {
-      p.appendChild(h('div', 'p-sub', '就差一点点了！'));
+      p.appendChild(h('div', 'p-sub', 'So close!'));
       var gl = h('div', 'p-goals');
       game.goals.forEach(function (g) {
         var d = h('div', 'p-goal');
@@ -7012,8 +7029,8 @@ window.Snd = Snd;
         gl.appendChild(d);
       });
       p.appendChild(gl);
-      var more = btn('<img class="coin-ic" src="' + IC.coin() + '">' + price + '　+5 步继续', 'orange', function () {
-        if (S.coins < price) { toast('金币不足啦~'); snd('invalid'); return; }
+      var more = btn('<img class="coin-ic" src="' + IC.coin() + '">' + price + '  +5 Moves', 'orange', function () {
+        if (S.coins < price) { toast('Not enough coins'); snd('invalid'); return; }
         S.coins -= price; persist(); snd('coin');
         closeModal();
         game.addMoves(5);
@@ -7025,12 +7042,12 @@ window.Snd = Snd;
       if (S.coins < price) more.disabled = true;
       p.appendChild(h('div', 'p-row')).appendChild(more);
       var r = h('div', 'p-row');
-      r.appendChild(btn('重新开始', 'small', function () { closeModal(); startLevel(levelN); }));
-      r.appendChild(btn('返回地图', 'blue small', function () { closeModal(); transition('map'); }));
+      r.appendChild(btn('Restart', 'small', function () { closeModal(); startLevel(levelN); }));
+      r.appendChild(btn('Back to Map', 'blue small', function () { closeModal(); transition('map'); }));
       p.appendChild(r);
-      var cc = h('div', 'p-sub', '当前金币：' + S.coins); cc.style.marginTop = '14px';
+      var cc = h('div', 'p-sub', 'Your coins: ' + S.coins); cc.style.marginTop = '14px';
       p.appendChild(cc);
-    }, { ribbon: '步数用完了', ribbonCls: 'gray', close: false });
+    }, { ribbon: 'Out of Moves', ribbonCls: 'gray', close: false });
   }
 
   // ---------------- level start ----------------
@@ -7038,7 +7055,7 @@ window.Snd = Snd;
     var lv = Levels.get(n);
     var sel = {};
     modal(function (p) {
-      p.appendChild(h('div', 'p-sub', '过关目标'));
+      p.appendChild(h('div', 'p-sub', 'Goals'));
       var gl = h('div', 'p-goals');
       var tmp = new Model.Game(lv, 1, { record: false });
       tmp.goals.forEach(function (g) {
@@ -7049,7 +7066,7 @@ window.Snd = Snd;
         gl.appendChild(d);
       });
       p.appendChild(gl);
-      p.appendChild(h('div', 'p-text', tmp.goals.map(goalText).join('，') + '<br>共 <b style="color:#e8267a">' + lv.moves + '</b> 步'));
+      p.appendChild(h('div', 'p-text', tmp.goals.map(goalText).join(' · ') + '<br>in <b style="color:#e8267a">' + lv.moves + '</b> moves'));
       if (lv.tip && TIPS[lv.tip]) {
         var card = h('div', 'tip-card');
         var c = document.createElement('canvas');
@@ -7059,7 +7076,7 @@ window.Snd = Snd;
         p.appendChild(card);
       }
       if (n >= 3) {
-        p.appendChild(h('div', 'pre-lbl', '— 开局道具 —'));
+        p.appendChild(h('div', 'pre-lbl', '— BOOSTERS —'));
         var row = h('div', 'pre-row');
         PRES.forEach(function (it) {
           var b = h('button', 'pre');
@@ -7080,7 +7097,7 @@ window.Snd = Snd;
         });
         p.appendChild(row);
       }
-      var go = btn('开始游戏', 'big', function () {
+      var go = btn('Play!', 'big', function () {
         closeModal();
         var pre = [];
         for (var k in sel) if (sel[k] && S.pre[k] > 0) { S.pre[k]--; pre.push(k); }
@@ -7088,8 +7105,8 @@ window.Snd = Snd;
         startLevel(n, pre);
       });
       p.appendChild(go);
-      if (S.best[n]) p.appendChild(h('div', 'p-sub', '最高分 ' + S.best[n]));
-    }, { ribbon: '第 ' + n + ' 关' });
+      if (S.best[n]) p.appendChild(h('div', 'p-sub', 'Best score ' + S.best[n]));
+    }, { ribbon: 'Level ' + n });
   }
 
   var tutorial = false;
@@ -7114,7 +7131,7 @@ window.Snd = Snd;
     await sleep(750);
     goalBanner();
     await sleep(1500);
-    if (pre && pre.length) toast('开局道具已就位！');
+    if (pre && pre.length) toast('Boosters ready!');
     board.busy = false;
     board.idle = 0;
     if ((n === 1 && !S.seen.tut1) || level.tip === 'basic') {
@@ -7126,7 +7143,7 @@ window.Snd = Snd;
   }
   function goalBanner() {
     var b = h('div', 'goal-banner');
-    b.appendChild(h('div', 't', game.goals.map(goalText).join(' · ')));
+    b.appendChild(h('div', 't', game.goals.map(goalText).join('<br>')));
     var gl = h('div', 'p-goals');
     game.goals.forEach(function (g) {
       var d = h('div', 'p-goal');
@@ -7190,9 +7207,9 @@ window.Snd = Snd;
     Snd.setSfx(!!S.set.sfx);
   }
   function soundRows(p) {
-    p.appendChild(toggleRow('背景音乐', 'music', applyAudio));
-    p.appendChild(toggleRow('游戏音效', 'sfx', applyAudio));
-    p.appendChild(toggleRow('震动反馈', 'vib'));
+    p.appendChild(toggleRow('Music', 'music', applyAudio));
+    p.appendChild(toggleRow('Sound Effects', 'sfx', applyAudio));
+    p.appendChild(toggleRow('Vibration', 'vib'));
   }
   function pauseMenu() {
     if (!game || board.busy) return;
@@ -7200,41 +7217,41 @@ window.Snd = Snd;
       soundRows(p);
       var r = h('div', 'p-row');
       r.style.marginTop = '16px';
-      r.appendChild(btn('继续游戏', 'big', function () { closeModal(); }));
+      r.appendChild(btn('Resume', 'big', function () { closeModal(); }));
       p.appendChild(r);
       var r2 = h('div', 'p-row');
-      r2.appendChild(btn('重新开始', 'orange small', function () { closeModal(); startLevel(levelN); }));
-      r2.appendChild(btn('返回地图', 'blue small', function () { closeModal(); transition('map'); }));
+      r2.appendChild(btn('Restart', 'orange small', function () { closeModal(); startLevel(levelN); }));
+      r2.appendChild(btn('Back to Map', 'blue small', function () { closeModal(); transition('map'); }));
       p.appendChild(r2);
-    }, { ribbon: '暂停', ribbonCls: 'purple' });
+    }, { ribbon: 'Paused', ribbonCls: 'purple' });
   }
   function settings() {
     modal(function (p) {
       soundRows(p);
       var r = h('div', 'p-row');
       r.style.marginTop = '16px';
-      r.appendChild(btn('重置进度', 'pink small', function () {
+      r.appendChild(btn('Reset Progress', 'pink small', function () {
         modal(function (q) {
-          q.appendChild(h('div', 'p-text', '确定要清空所有关卡进度、星星和金币吗？<br>此操作无法撤销。'));
+          q.appendChild(h('div', 'p-text', 'Clear all level progress, stars and coins?<br>This can’t be undone.'));
           var rr = h('div', 'p-row');
-          rr.appendChild(btn('确定清空', 'pink small', function () {
-            var keep = S.set; S = fresh(); S.set = keep; persist(); closeModal(); buildMap(); toast('进度已重置');
+          rr.appendChild(btn('Yes, Reset', 'pink small', function () {
+            var keep = S.set; S = fresh(); S.set = keep; persist(); closeModal(); buildMap(); toast('Progress reset');
           }));
-          rr.appendChild(btn('取消', 'small', function () { closeModal(); settings(); }));
+          rr.appendChild(btn('Cancel', 'small', function () { closeModal(); settings(); }));
           q.appendChild(rr);
-        }, { ribbon: '重置进度', ribbonCls: 'gray', onClose: settings });
+        }, { ribbon: 'Reset Progress', ribbonCls: 'gray', onClose: settings });
       }));
-      r.appendChild(btn('好的', 'small', function () { closeModal(); }));
+      r.appendChild(btn('OK', 'small', function () { closeModal(); }));
       p.appendChild(r);
-      p.appendChild(h('div', 'p-text', '<span style="font-size:12px;opacity:.7">甜蜜消消乐 Sugar Burst · 全部美术与音效均为程序实时生成</span>'));
-    }, { ribbon: '设置', ribbonCls: 'purple' });
+      p.appendChild(h('div', 'p-text', '<span style="font-size:12px;opacity:.7">Sugar Burst · All art and audio are generated in code</span>'));
+    }, { ribbon: 'Settings', ribbonCls: 'purple' });
   }
   function today() { var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
   function shop() {
     modal(function (p) {
-      var daily = btn(S.daily === today() ? '今日奖励已领取' : '<img class="coin-ic" src="' + IC.coin() + '">领取每日奖励 +300', 'pink', function () {
+      var daily = btn(S.daily === today() ? 'Daily bonus claimed' : '<img class="coin-ic" src="' + IC.coin() + '">Daily bonus +300', 'pink', function () {
         if (S.daily === today()) return;
-        S.daily = today(); S.coins += 300; persist(); snd('coin'); updatePills(); closeModal(); shop(); toast('获得 300 金币！');
+        S.daily = today(); S.coins += 300; persist(); snd('coin'); updatePills(); closeModal(); shop(); toast('You got 300 coins!');
       });
       if (S.daily === today()) daily.disabled = true;
       var dr = h('div', 'p-row'); dr.style.marginBottom = '12px'; dr.appendChild(daily); p.appendChild(dr);
@@ -7242,9 +7259,9 @@ window.Snd = Snd;
       BOOSTERS.concat(PRES).forEach(function (it) {
         var isPre = PRES.indexOf(it) >= 0;
         var d = h('div', 'shop-item');
-        d.innerHTML = '<img class="ic" src="' + IC.booster(isPre ? it.icon : it.id) + '"><div class="nm">' + it.name + '</div><div class="ds">' + it.desc + '</div><div class="own">拥有 ' + ((isPre ? S.pre[it.id] : S.boosters[it.id]) || 0) + '</div>';
+        d.innerHTML = '<img class="ic" src="' + IC.booster(isPre ? it.icon : it.id) + '"><div class="nm">' + it.name + '</div><div class="ds">' + it.desc + '</div><div class="own">Owned: ' + ((isPre ? S.pre[it.id] : S.boosters[it.id]) || 0) + '</div>';
         var b = btn('<img class="coin-ic" src="' + IC.coin() + '">' + it.price, 'orange small', function () {
-          if (S.coins < it.price) { toast('金币不足啦~'); snd('invalid'); return; }
+          if (S.coins < it.price) { toast('Not enough coins'); snd('invalid'); return; }
           S.coins -= it.price;
           if (isPre) S.pre[it.id] = (S.pre[it.id] || 0) + 1; else S.boosters[it.id] = (S.boosters[it.id] || 0) + 1;
           persist(); snd('coin'); updatePills(); closeModal(); shop();
@@ -7253,8 +7270,8 @@ window.Snd = Snd;
         grid.appendChild(d);
       });
       p.appendChild(grid);
-      p.appendChild(h('div', 'p-sub', '当前金币：' + S.coins));
-    }, { ribbon: '糖果商店', ribbonCls: 'purple' });
+      p.appendChild(h('div', 'p-sub', 'Your coins: ' + S.coins));
+    }, { ribbon: 'Candy Shop', ribbonCls: 'purple' });
   }
 
   // ---------------- layout ----------------
